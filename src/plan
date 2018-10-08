@@ -1,0 +1,9 @@
+AC CRIT OF VIRTUAL PET
+///////////////////////
+-pet should have health statistics (randomly generated when your pet is born or hatched)
+-pet should be able to communicate its needs
+-i should have option to pet my pet
+-i should have option to feed my pet
+-pet must be hungry from time to time
+-but must sleep
+-i should have option to play with pet using his toy
