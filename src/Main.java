@@ -14,6 +14,7 @@ public class Main extends Application {
         window = primaryStage;
         window.setTitle("Tamagothi");
         VBox board = new VBox();
+
         board.setPadding(new Insets(10, 10, 10, 10));
         Scene scene = new Scene(board, 500, 500);
 //        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
