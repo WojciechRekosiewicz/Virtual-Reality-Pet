@@ -1,5 +1,7 @@
 import Model.ActivityLvl;
 import Model.Statistics;
+import View.View;
+import javafx.scene.image.Image;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -24,5 +26,12 @@ public class test {
         Assert.assertNotEquals(strength, StatisticsObject.getStrength());
         Assert.assertNotEquals(strength, StatisticsObject.getStrength());
 
+    }
+
+    @Test
+    public void isImageAdded() {
+        View viewObject = new View();
+        Image Vader = new Image("vader.jpeg");
+        Assert.assertSame(Vader, viewObject.Vader);
     }
 }
