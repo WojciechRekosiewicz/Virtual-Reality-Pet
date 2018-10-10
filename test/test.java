@@ -32,6 +32,6 @@ public class test {
     public void isImageAdded() {
         View viewObject = new View();
         Image Vader = new Image("vader.jpeg");
-        Assert.assertSame(Vader, viewObject.Vader);
+        Assert.assertTrue(Vader == viewObject.Vader);
     }
 }
