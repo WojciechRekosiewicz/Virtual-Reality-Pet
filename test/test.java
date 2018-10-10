@@ -1,4 +1,3 @@
-import Model.ActivityLvl;
 import Model.Statistics;
 import View.View;
 import javafx.scene.image.Image;
@@ -11,11 +10,13 @@ import java.util.Random;
 public class test {
     @Test
     public void isStatsHaveBeenCreated() {
-        ActivityLvl AL = new ActivityLvl();
+        Statistics statisticsObject = new Statistics();
         int feedLvl = 50;
         int funLvl = 50;
-        Assert.assertEquals(feedLvl, AL.getFeedLvl());
-        Assert.assertEquals(funLvl, AL.getFunLvl());
+        int sleepLvl = 50;
+        Assert.assertEquals(feedLvl, statisticsObject.getHungryLvl());
+        Assert.assertEquals(funLvl, statisticsObject.getFunLvl());
+        Assert.assertEquals(sleepLvl, statisticsObject.getSleepLvl());
     }
 
     @Test
@@ -28,6 +29,15 @@ public class test {
         Assert.assertNotEquals(strength, StatisticsObject.getStrength());
 
     }
+
+//    @Test
+//    public void isHungry(){
+//        Statistics statisticsObject = new Statistics();
+//        int hungryLvl = 50;
+//        int funLvl = 50;
+//        Assert.assertEquals(hungryLvl, statisticsObject.getHungryLvl());
+//        Assert.assertEquals(funLvl, statisticsObject.getFunLvl());
+//    }
 
     @Test
     public void isImageAdded() {
