@@ -1,20 +1,23 @@
 package View;
 
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.geometry.Insets;
 import javafx.stage.Stage;
 
 public class View {
-    public Image Vader = new Image("vader.jpeg");
+    Image Vader = new Image("vader.jpeg");
+    ImageView viewVader = new ImageView(Vader);
+
+
+    public ImageView getViewVader() {
+        return viewVader;
+    }
 
     public void createBoard(GridPane gridPane, VBox board, Stage primaryStage) {
         primaryStage.setTitle("Tamagothi");
-        ImageView LVader = new ImageView(Vader);
-        gridPane.add(LVader, 400, 400, 100, 100);
+        gridPane.add(getViewVader(), 400, 400, 100, 100);
         //board.getChildren().add(gridPane);
         //board.setPadding(new Insets(10, 10, 10, 10));
 

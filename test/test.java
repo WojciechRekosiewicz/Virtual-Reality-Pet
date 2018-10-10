@@ -2,6 +2,7 @@ import Model.ActivityLvl;
 import Model.Statistics;
 import View.View;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,6 +33,7 @@ public class test {
     public void isImageAdded() {
         View viewObject = new View();
         Image Vader = new Image("vader.jpeg");
-        Assert.assertTrue(Vader == viewObject.Vader);
+        ImageView vaderView = new ImageView(Vader);
+        Assert.assertEquals(viewObject.getViewVader(), vaderView);
     }
 }
