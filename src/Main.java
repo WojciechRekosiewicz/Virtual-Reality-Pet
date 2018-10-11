@@ -9,7 +9,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-    //    Buttons buttonsObject = new Buttons();
         VBox board = new VBox();
         GridPane gridPane = new GridPane();
         View viewObject = new View();

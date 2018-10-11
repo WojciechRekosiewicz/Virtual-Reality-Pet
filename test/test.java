@@ -1,3 +1,4 @@
+import Model.Fun;
 import Model.Statistics;
 import View.View;
 import javafx.scene.image.Image;
@@ -19,6 +20,16 @@ public class test {
         Assert.assertEquals(sleepLvl, statisticsObject.getSleepLvl());
     }
 
+        @Test
+    public void isStatModify() {
+        Statistics statistics = new Statistics();
+        Fun fun = new Fun();
+        String funAdded = "Statistics \n" +
+                "Feed 50\n" +
+                "Fun 60\n" +
+                "Energy 50\n";
+     //   Assert.assertSame(funAdded, fun.funModify());
+        }
 //    @Test
 //    public void isStrAndDexCreated() {
 //        Statistics StatisticsObject = new Statistics();

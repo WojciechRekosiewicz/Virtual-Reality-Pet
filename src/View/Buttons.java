@@ -2,28 +2,32 @@ package View;
 
 import Model.Feed;
 import Model.Fun;
+import Model.Statistics;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Label;
-import java.awt.*;
 
 public class Buttons {
     private Fun fun = new Fun();
     private Feed feed = new Feed();
+    private Statistics statistics = new Statistics();
     private Button feedButton = new Button("Feed");
     private Button funButton = new Button("Pet");
 
     public void useFeed(){
         feedButton.setOnAction(e -> {
             feed.feedModify();
-            System.out.println("Feed");
+            System.out.println();
+            System.out.println(statistics.getHungryLvl());
         });
     }
     public void useFun(){
         funButton.setOnAction(e -> {
+            statistics.changeFun();
+            System.out.println(statistics.getFunLvl());
             fun.funModify();
-            System.out.println("Fun");
+            System.out.println();
+            System.out.println(statistics.getFunLvl());
         });
     }
 

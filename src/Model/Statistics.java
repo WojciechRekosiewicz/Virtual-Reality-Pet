@@ -1,11 +1,15 @@
 package Model;
 
+import Controller.ModifyStats;
+
 import java.util.Random;
 
-public class Statistics {
+public class Statistics extends ModifyStats {
     private Random generator = new Random();
     private int hungryLvl = 50;
     private int funLvl = 50;
+    private int sleepLvl = 50;
+
 
     @Override
     public String toString() {
@@ -14,8 +18,6 @@ public class Statistics {
                 "Fun " + funLvl + "\n" +
                 "Energy " + sleepLvl + "\n";
     }
-
-    private int sleepLvl = 50;
 
 
     public int getSleepLvl() {
@@ -40,6 +42,10 @@ public class Statistics {
 
     public void setFunLvl(int funLvl) {
         this.funLvl = funLvl;
+    }
+
+    public void changeFun(){
+        setFunLvl(modifyStatsPlus(getFunLvl(), 10));
     }
 
 }

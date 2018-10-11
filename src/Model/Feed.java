@@ -2,11 +2,10 @@ package Model;
 
 import Controller.ModifyStats;
 
-public class Feed {
+public class Feed extends Statistics {
     public void feedModify() {
         ModifyStats modifyStats = new ModifyStats();
-        Statistics statistics = new Statistics();
-        statistics.setHungryLvl(modifyStats.modifyStatsPlus(statistics.getHungryLvl(), 10));
-        System.out.println(statistics.getHungryLvl());
+        setHungryLvl(modifyStats.modifyStatsPlus(getHungryLvl(), 10));
+        System.out.println(getHungryLvl());
     }
 }
