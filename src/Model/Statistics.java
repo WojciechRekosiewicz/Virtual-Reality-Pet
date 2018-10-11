@@ -4,10 +4,17 @@ import java.util.Random;
 
 public class Statistics {
     private Random generator = new Random();
-    private int strength = generator.nextInt(100);
-    private int dexterity = generator.nextInt(100);
     private int hungryLvl = 50;
     private int funLvl = 50;
+
+    @Override
+    public String toString() {
+        return "Statistics " + "\n" +
+                "Feed " + hungryLvl + "\n" +
+                "Fun " + funLvl + "\n" +
+                "Energy " + sleepLvl + "\n";
+    }
+
     private int sleepLvl = 50;
 
 
@@ -35,19 +42,4 @@ public class Statistics {
         this.funLvl = funLvl;
     }
 
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    public int getDexterity() {
-        return dexterity;
-    }
-
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
-    }
 }
