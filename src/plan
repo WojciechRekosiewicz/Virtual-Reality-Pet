@@ -1,9 +1,40 @@
 AC CRIT OF VIRTUAL PET
 ///////////////////////
--pet should have health statistics (randomly generated when your pet is born or hatched)
 -pet should be able to communicate its needs
+->notify when hungryLvl is low
+->notify when funLvl is low
+->notify when feedLvl is low
+->notify function!
+
 -i should have option to pet my pet
+->modify funLvl by x
+
+//-i should have option to play with pet using his toy
+
 -i should have option to feed my pet
+->modify feedLvl by x
+
 -pet must be hungry from time to time
+->hungry lvl decrease timeline
+
 -but must sleep
--i should have option to play with pet using his toy
+->sleep when sleeplvl less than 20
+->sleep 60sec to restore
+
+
+
+
+
+
+
+
+
+
+
+->random hungryLvl generator
+
+->random funLvl generator
+
+-pet should have health statistics (randomly generated when your pet is born or hatched)
+->health stats modify()
+->random health generator

@@ -19,16 +19,16 @@ public class test {
         Assert.assertEquals(sleepLvl, statisticsObject.getSleepLvl());
     }
 
-    @Test
-    public void isStrAndDexCreated() {
-        Statistics StatisticsObject = new Statistics();
-        Random generator = new Random();
-        int strength = generator.nextInt(100);
-        int dexterity = generator.nextInt(100);
-        Assert.assertNotEquals(strength, StatisticsObject.getStrength());
-        Assert.assertNotEquals(strength, StatisticsObject.getStrength());
-
-    }
+//    @Test
+//    public void isStrAndDexCreated() {
+//        Statistics StatisticsObject = new Statistics();
+//        Random generator = new Random();
+//        int strength = generator.nextInt(100);
+//        int dexterity = generator.nextInt(100);
+//        Assert.assertNotEquals(strength, StatisticsObject.getStrength());
+//        Assert.assertNotEquals(dexterity, StatisticsObject.getDexterity());
+//
+//    }
 
 //    @Test
 //    public void isHungry(){
