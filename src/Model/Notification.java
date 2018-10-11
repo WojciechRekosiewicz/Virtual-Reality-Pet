@@ -1,4 +1,9 @@
 package Model;
 
-public class Notification {
+import Controller.ModifyStats;
+
+public class Notification extends ModifyStats {
+    public void notifyAboutStat(ModifyStats  modifyStats){
+
+    }
 }
