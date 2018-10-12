@@ -27,6 +27,7 @@ public class View {
         Notification notification = new Notification();
         Statistics statistics = new Statistics();
         Label label = new Label(statistics.toString());
+        TextArea textArea = new TextArea(statistics.toString());
 
         Buttons buttonsObject = new Buttons();
         primaryStage.setTitle("Tamagothi");
