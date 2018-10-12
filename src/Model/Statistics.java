@@ -44,8 +44,17 @@ public class Statistics extends ModifyStats {
         this.funLvl = funLvl;
     }
 
-    public void changeFun(){
+    public void changeFunLvl() {
         setFunLvl(modifyStatsPlus(getFunLvl(), 10));
     }
+
+    public void changeHungryLvl() {
+        setHungryLvl(modifyStatsPlus(getHungryLvl(), 10));
+    }
+
+    public void changeSleepLvl() {
+        setSleepLvl(modifyStatsPlus(getSleepLvl(), 10));
+    }
+
 
 }

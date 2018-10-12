@@ -16,16 +16,16 @@ public class Buttons {
 
     public void useFeed(){
         feedButton.setOnAction(e -> {
-            feed.feedModify();
+            statistics.changeHungryLvl();
+            //feed.feedModify();
             System.out.println();
             System.out.println(statistics.getHungryLvl());
         });
     }
     public void useFun(){
         funButton.setOnAction(e -> {
-            statistics.changeFun();
-            System.out.println(statistics.getFunLvl());
-            fun.funModify();
+            statistics.changeFunLvl();
+            // fun.funModify();
             System.out.println();
             System.out.println(statistics.getFunLvl());
         });
