@@ -1,5 +1,7 @@
 package View;
 
+import Model.Notification;
+import Model.Sleep;
 import Model.Statistics;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
@@ -21,11 +23,20 @@ public class View {
     }
 
     public void createBoard(GridPane gridPane, VBox board, Stage primaryStage) {
+        Sleep sleep = new Sleep();
+        Notification notification = new Notification();
         Statistics statistics = new Statistics();
         Label label = new Label(statistics.toString());
 
         Buttons buttonsObject = new Buttons();
         primaryStage.setTitle("Tamagothi");
+
+//        notification.notificationTimer(statistics.getFunLvl());
+//        notification.notificationTimer(statistics.getHungryLvl());
+//        notification.notificationTimer(statistics.getSleepLvl());
+        notification.notificationTimer();
+        sleep.modifySleepByTime();
+
         buttonsObject.addButtons(board);
         gridPane.add(getViewVader(), 400, 400, 100, 100);
         board.getChildren().addAll(gridPane, label);

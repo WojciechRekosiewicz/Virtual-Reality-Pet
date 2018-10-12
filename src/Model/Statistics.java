@@ -7,7 +7,7 @@ import java.util.Random;
 public class Statistics extends ModifyStats {
     private Random generator = new Random();
     private int hungryLvl = 50;
-    private int funLvl = 50;
+    private int funLvl = 10;
     private int sleepLvl = 50;
 
 
@@ -53,7 +53,8 @@ public class Statistics extends ModifyStats {
     }
 
     public void changeSleepLvl() {
-        setSleepLvl(modifyStatsPlus(getSleepLvl(), 10));
+        setSleepLvl(modifyStatsPlus(getSleepLvl(), -1));
+        System.out.println(getSleepLvl());
     }
 
 
