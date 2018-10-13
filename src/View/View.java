@@ -73,6 +73,22 @@ public class View extends Statistics {
 
             }
         });
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0),
+                        new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                changeFunLvlMinus();
+                                label.setText("\nFun: " + Integer.toString(getFunLvl()));
+                            }
+                        }
+                ),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
     }
 
     public void useChangeFeedLvl(Label label, Button feedButton) {
@@ -86,6 +102,21 @@ public class View extends Statistics {
 
             }
         });
+
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0),
+                        new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                changeHungryLvlMinus();
+                                label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
+                            }
+                        }
+                ),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
     }
 
 

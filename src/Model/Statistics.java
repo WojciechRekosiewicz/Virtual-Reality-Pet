@@ -48,13 +48,20 @@ public class Statistics extends ModifyStats {
         setFunLvl(modifyStatsPlus(getFunLvl(), 10));
     }
 
+    public void changeFunLvlMinus() {
+        setFunLvl(modifyStatsPlus(getFunLvl(), -5));
+    }
+
+    public void changeHungryLvlMinus() {
+        setHungryLvl(modifyStatsPlus(getHungryLvl(), -5));
+    }
+
     public void changeHungryLvl() {
         setHungryLvl(modifyStatsPlus(getHungryLvl(), 10));
     }
 
     public void changeSleepLvl() {
         setSleepLvl(modifyStatsPlus(getSleepLvl(), -1));
-        //   System.out.println(getSleepLvl());
     }
 
 
