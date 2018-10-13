@@ -12,7 +12,7 @@ public class Sleep extends Statistics {
 
     public void modifySleepByTime() {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-            changeSleepLvl();
+            changeSleepLvlMinus();
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();

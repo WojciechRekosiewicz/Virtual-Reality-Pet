@@ -1,11 +1,10 @@
 package View;
 
-import Model.Notification;
-import Model.Sleep;
 import Model.Statistics;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -21,6 +20,7 @@ public class View extends Statistics {
     Image Vader = new Image("vader.jpeg");
     ImageView viewVader = new ImageView(Vader);
     public int MINIMUMAMOUNT = 40;
+    public int sleepValue = 40;
 
     public ImageView getViewVader() {
         return viewVader;
@@ -54,12 +54,19 @@ public class View extends Statistics {
                         new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent actionEvent) {
-                                changeSleepLvl();
+                                changeSleepLvlMinus();
                                 label.setText("Energy: " + Integer.toString(getSleepLvl()));
-                                if (getSleepLvl() < MINIMUMAMOUNT) {
+                                notificationEnergy.setText("Awake");
+                                if (getSleepLvl() < sleepValue) {
                                     notificationEnergy.setText("Low Sleep lvl");
+                                    if (getFunLvl() <= 38) {
+                                        notificationEnergy.setText("Sleeping");
+                                        changeSleepLvl();
+                                        sleepValue = 55;
+                                    }
+
                                 } else {
-                                    notificationEnergy.setText("Good Sleep lvl");
+                                    sleepValue = 40;
                                 }
                             }
                         }
@@ -93,6 +100,11 @@ public class View extends Statistics {
 
                                 if (getFunLvl() < MINIMUMAMOUNT) {
                                     notificationFeed.setText("Low Fun lvl");
+                                    if (getFunLvl() <= 0) {
+                                        System.out.println("Vader commited Sudoku");
+                                        Platform.exit();
+                                        System.exit(0);
+                                    }
                                 } else {
                                     notificationFeed.setText("Good Fun lvl");
                                 }
@@ -128,6 +140,11 @@ public class View extends Statistics {
 
                                 if (getHungryLvl() < MINIMUMAMOUNT) {
                                     notificationFun.setText("Low Feed lvl");
+                                    if (getHungryLvl() <= 0) {
+                                        System.out.println("Vader starved to dead");
+                                        Platform.exit();
+                                        System.exit(0);
+                                    }
                                 } else {
                                     notificationFun.setText("Good Feed lvl");
                                 }

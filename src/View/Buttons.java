@@ -12,7 +12,7 @@ public class Buttons extends Statistics {
     private Feed feed = new Feed();
     private Statistics statistics = new Statistics();
     private Button feedButton = new Button("Feed");
-    private Button funButton = new Button("Pet");
+    private Button funButton = new Button("Kill Yedi");
 
 //    public void useFeed(){
 //        feedButton.setOnAction(e -> {
