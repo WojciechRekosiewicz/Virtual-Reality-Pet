@@ -57,16 +57,15 @@ public class View extends Statistics {
                                 changeSleepLvlMinus();
                                 label.setText("Energy: " + Integer.toString(getSleepLvl()));
                                 notificationEnergy.setText("Awake");
-                                if (getSleepLvl() < sleepValue) {
-                                    notificationEnergy.setText("Low Sleep lvl");
-                                    if (getFunLvl() <= 38) {
-                                        notificationEnergy.setText("Sleeping");
-                                        changeSleepLvl();
-                                        sleepValue = 55;
-                                    }
+                                if (getSleepLvl() < 38) {
+                                    notificationEnergy.setText("Sleeping");
+                                    sleepValue = 100;
+                                    changeSleepLvl();
 
-                                } else {
-                                    sleepValue = 40;
+                                } else if (getSleepLvl() < sleepValue) {
+                                    notificationEnergy.setText("Low Sleep lvl");
+                                    sleepValue = 45;
+
                                 }
                             }
                         }

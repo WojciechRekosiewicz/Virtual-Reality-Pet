@@ -8,7 +8,7 @@ public class Statistics extends ModifyStats {
     private Random generator = new Random();
     private int hungryLvl = 50;
     private int funLvl = 10;
-    private int sleepLvl = 50;
+    private int sleepLvl = 42;
 
 
 //    @Override
@@ -65,7 +65,7 @@ public class Statistics extends ModifyStats {
     }
 
     public void changeSleepLvl() {
-        setSleepLvl(modifyStatsPlus(getSleepLvl(), 2));
+        setSleepLvl(modifyStatsPlus(getSleepLvl(), 3));
     }
 
 
