@@ -54,7 +54,7 @@ public class Statistics extends ModifyStats {
 
     public void changeSleepLvl() {
         setSleepLvl(modifyStatsPlus(getSleepLvl(), -1));
-        System.out.println(getSleepLvl());
+        //   System.out.println(getSleepLvl());
     }
 
 

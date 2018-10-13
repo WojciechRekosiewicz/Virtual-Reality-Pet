@@ -9,6 +9,7 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
@@ -16,34 +17,28 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-import java.awt.*;
-
-
 public class View extends Statistics {
     Image Vader = new Image("vader.jpeg");
     ImageView viewVader = new ImageView(Vader);
-
 
     public ImageView getViewVader() {
         return viewVader;
     }
 
+
     public void createBoard(VBox board, Stage primaryStage) {
-        Sleep sleep = new Sleep();
         Notification notification = new Notification();
-        Statistics statistics = new Statistics();
-        Label label = new Label();
-        Buttons buttonsObject = new Buttons();
+        Label labelEnergy = new Label();
+        Label labelFeed = new Label();
+        Label labelFun = new Label();
+
+        Buttons buttons = new Buttons();
         primaryStage.setTitle("Tamagothi");
 
-        viewStats(label);
         notification.notificationTimer();
-        // sleep.modifySleepByTime();
-
-        buttonsObject.addButtons(board);
-        //  gridPane.add(digitalClock.(), 10, 10, 10, 10);
-        // gridPane.add(getViewVader(), 400, 400, 100, 100);
-        board.getChildren().addAll(label, getViewVader());
+        viewStats(labelEnergy);
+        buttons.addButtons(board, labelFun, labelFeed);
+        board.getChildren().addAll(labelEnergy, labelFeed, labelFun, getViewVader());
         board.setPadding(new Insets(10, 10, 10, 10));
     }
 
@@ -54,9 +49,9 @@ public class View extends Statistics {
                             @Override
                             public void handle(ActionEvent actionEvent) {
                                 changeSleepLvl();
-                                label.setText("Energy: " + Integer.toString(getSleepLvl()) + "\nFun: " + Integer.toString(getFunLvl()) +
-                                        "\nFeed: " + Integer.toString(getHungryLvl()));
-
+//                                label.setText("Energy: " + Integer.toString(getSleepLvl()) + "\nFun: " + Integer.toString(getFunLvl()) +
+//                                        "\nFeed: " + Integer.toString(getHungryLvl()));
+                                label.setText("Energy: " + Integer.toString(getSleepLvl()));
                             }
                         }
                 ),
@@ -65,6 +60,34 @@ public class View extends Statistics {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
+
+
+    public void useChangeFunLvl(Label label, Button funButton) {
+        label.setText("\nFun: " + Integer.toString(getFunLvl()));
+        funButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                changeFunLvl();
+                label.setText("\nFun: " + Integer.toString(getFunLvl()));
+
+            }
+        });
+    }
+
+    public void useChangeFeedLvl(Label label, Button feedButton) {
+        label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
+        feedButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                changeHungryLvl();
+                label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
+
+            }
+        });
+    }
+
 
 
 }
