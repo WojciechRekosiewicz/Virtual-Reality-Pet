@@ -59,6 +59,6 @@ public class Buttons {
         VBox rightSide = new VBox();
         rightSide.setAlignment(Pos.BOTTOM_RIGHT);
         rightSide.getChildren().add(feedButton);
-        board.getChildren().addAll(funButton, rightSide);
+        board.getChildren().addAll(funButton, feedButton);
     }
 }

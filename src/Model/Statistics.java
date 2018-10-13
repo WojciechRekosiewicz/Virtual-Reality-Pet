@@ -11,13 +11,13 @@ public class Statistics extends ModifyStats {
     private int sleepLvl = 50;
 
 
-    @Override
-    public String toString() {
-        return "Statistics " + "\n" +
-                "Feed " + hungryLvl + "\n" +
-                "Fun " + funLvl + "\n" +
-                "Energy " + sleepLvl + "\n";
-    }
+//    @Override
+//    public String toString() {
+//        return "Statistics " + "\n" +
+//                "Feed " + hungryLvl + "\n" +
+//                "Fun " + funLvl + "\n" +
+//                "Energy " + sleepLvl + "\n";
+//    }
 
 
     public int getSleepLvl() {
