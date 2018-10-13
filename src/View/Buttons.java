@@ -45,11 +45,11 @@ public class Buttons extends Statistics {
 //    }
 
 
-    public void addButtons(VBox board, Label labelFun, Label labelFeed) {
+    public void addButtons(VBox board, Label labelFun, Label labelFeed, Label notificationFeed, Label notificationFun) {
         View view = new View();
         //view.useFun(funButton);
-        view.useChangeFunLvl(labelFun, funButton);
-        view.useChangeFeedLvl(labelFeed, feedButton);
+        view.useChangeFunLvl(labelFun, funButton, notificationFun);
+        view.useChangeFeedLvl(labelFeed, feedButton, notificationFeed);
         board.getChildren().addAll(funButton, feedButton);
     }
 }

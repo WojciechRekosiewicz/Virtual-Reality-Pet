@@ -26,26 +26,29 @@ public class View extends Statistics {
         return viewVader;
     }
 
-
     public void createBoard(VBox board, Stage primaryStage) {
-        Notification notification = new Notification();
         Label labelEnergy = new Label();
         Label labelFeed = new Label();
         Label labelFun = new Label();
+        Label notificationEnergy = new Label();
+        Label notificationFeed = new Label();
+        Label notificationFun = new Label();
 
         Buttons buttons = new Buttons();
         primaryStage.setTitle("Tamagothi");
 
 
-        // notification.viewNot();
-        // notification.notificationTimer();
-        viewStats(labelEnergy);
-        buttons.addButtons(board, labelFun, labelFeed);
-        board.getChildren().addAll(labelEnergy, labelFeed, labelFun, getViewVader());
+        viewStats(labelEnergy, notificationEnergy);
+
+        buttons.addButtons(board, labelFun, labelFeed, notificationFeed, notificationFun);
+
+        board.getChildren().addAll(labelEnergy, labelFeed, labelFun, getViewVader(), notificationEnergy,
+                notificationFeed, notificationFun);
+
         board.setPadding(new Insets(10, 10, 10, 10));
     }
 
-    public void viewStats(Label label) {
+    public void viewStats(Label label, Label notificationEnergy) {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0),
                         new EventHandler<ActionEvent>() {
@@ -54,9 +57,9 @@ public class View extends Statistics {
                                 changeSleepLvl();
                                 label.setText("Energy: " + Integer.toString(getSleepLvl()));
                                 if (getSleepLvl() < MINIMUMAMOUNT) {
-                                    System.out.println("low Sleep lvl");
+                                    notificationEnergy.setText("Low Sleep lvl");
                                 } else {
-                                    System.out.println("good Sleep lvl");
+                                    notificationEnergy.setText("Good Sleep lvl");
                                 }
                             }
                         }
@@ -68,7 +71,7 @@ public class View extends Statistics {
     }
 
 
-    public void useChangeFunLvl(Label label, Button funButton) {
+    public void useChangeFunLvl(Label label, Button funButton, Label notificationFeed) {
         label.setText("\nFun: " + Integer.toString(getFunLvl()));
         funButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
 
@@ -89,9 +92,9 @@ public class View extends Statistics {
                                 label.setText("\nFun: " + Integer.toString(getFunLvl()));
 
                                 if (getFunLvl() < MINIMUMAMOUNT) {
-                                    System.out.println("low Fun");
+                                    notificationFeed.setText("Low Fun lvl");
                                 } else {
-                                    System.out.println("good Fun lvl");
+                                    notificationFeed.setText("Good Fun lvl");
                                 }
                             }
                         }
@@ -103,7 +106,7 @@ public class View extends Statistics {
 
     }
 
-    public void useChangeFeedLvl(Label label, Button feedButton) {
+    public void useChangeFeedLvl(Label label, Button feedButton, Label notificationFun) {
         label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
         feedButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
 
@@ -124,9 +127,9 @@ public class View extends Statistics {
                                 label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
 
                                 if (getHungryLvl() < MINIMUMAMOUNT) {
-                                    System.out.println("low Feed lvl");
+                                    notificationFun.setText("Low Feed lvl");
                                 } else {
-                                    System.out.println("good Feed lvl");
+                                    notificationFun.setText("Good Feed lvl");
                                 }
                             }
                         }
@@ -136,9 +139,6 @@ public class View extends Statistics {
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
-
-
-
 }
 
 
