@@ -20,6 +20,7 @@ import javafx.util.Duration;
 public class View extends Statistics {
     Image Vader = new Image("vader.jpeg");
     ImageView viewVader = new ImageView(Vader);
+    public int MINIMUMAMOUNT = 40;
 
     public ImageView getViewVader() {
         return viewVader;
@@ -35,7 +36,9 @@ public class View extends Statistics {
         Buttons buttons = new Buttons();
         primaryStage.setTitle("Tamagothi");
 
-        notification.notificationTimer();
+
+        // notification.viewNot();
+        // notification.notificationTimer();
         viewStats(labelEnergy);
         buttons.addButtons(board, labelFun, labelFeed);
         board.getChildren().addAll(labelEnergy, labelFeed, labelFun, getViewVader());
@@ -49,9 +52,12 @@ public class View extends Statistics {
                             @Override
                             public void handle(ActionEvent actionEvent) {
                                 changeSleepLvl();
-//                                label.setText("Energy: " + Integer.toString(getSleepLvl()) + "\nFun: " + Integer.toString(getFunLvl()) +
-//                                        "\nFeed: " + Integer.toString(getHungryLvl()));
                                 label.setText("Energy: " + Integer.toString(getSleepLvl()));
+                                if (getSleepLvl() < MINIMUMAMOUNT) {
+                                    System.out.println("low Sleep lvl");
+                                } else {
+                                    System.out.println("good Sleep lvl");
+                                }
                             }
                         }
                 ),
@@ -81,6 +87,12 @@ public class View extends Statistics {
                             public void handle(ActionEvent actionEvent) {
                                 changeFunLvlMinus();
                                 label.setText("\nFun: " + Integer.toString(getFunLvl()));
+
+                                if (getFunLvl() < MINIMUMAMOUNT) {
+                                    System.out.println("low Fun");
+                                } else {
+                                    System.out.println("good Fun lvl");
+                                }
                             }
                         }
                 ),
@@ -110,6 +122,12 @@ public class View extends Statistics {
                             public void handle(ActionEvent actionEvent) {
                                 changeHungryLvlMinus();
                                 label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
+
+                                if (getHungryLvl() < MINIMUMAMOUNT) {
+                                    System.out.println("low Feed lvl");
+                                } else {
+                                    System.out.println("good Feed lvl");
+                                }
                             }
                         }
                 ),

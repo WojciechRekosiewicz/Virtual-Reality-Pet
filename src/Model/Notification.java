@@ -11,7 +11,7 @@ import javafx.util.Duration;
 
 public class Notification extends Statistics {
 
-    public int MINIMUMAMOUNT = 10;
+    public int MINIMUMAMOUNT = 50;
 
     public void notifyAboutFun() {
         if (getFunLvl() < MINIMUMAMOUNT) {
@@ -50,13 +50,29 @@ public class Notification extends Statistics {
 
     public void viewNot() {
 
-        //System.out.println(getSleepLvl() + "sleep");
-        notifyAboutFun();
-        notifyAboutFeed();
-        notifyAboutSleep();
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(0),
+                        new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent actionEvent) {
+                                System.out.println(getFunLvl());
+                                if (getFunLvl() < MINIMUMAMOUNT) {
+                                    System.out.println("Low Fun");
+                                } else {
+                                    System.out.println("asd");
+                                }
+                                //  label.setText("Energy: " + Integer.toString(getSleepLvl()));
+                            }
+                        }
+                ),
+                new KeyFrame(Duration.seconds(1))
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
 
     }
-    }
+
 
 
 
