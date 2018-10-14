@@ -6,7 +6,13 @@ import javafx.scene.image.ImageView;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javafx.scene.control.Label;
+
+import java.beans.Expression;
 import java.util.Random;
+
+import static junit.framework.TestCase.assertNotNull;
+import static junit.framework.TestCase.fail;
 
 public class test {
     @Test
@@ -30,12 +36,17 @@ public class test {
         Assert.assertEquals(resultExpected, resultFromFunction);
     }
 
-
 //    @Test
-//    public void isImageAdded() {
-//        Statistics statistics = new Statistics();
-//        Image Vader = new Image("vader.jpeg");
-//        ImageView vaderView = new ImageView(Vader);
-//        Assert.assertEquals(vaderView, statistics.getViewVader());
+//    public void ModifyLabelChecker() {
+//        ModifyStats modifyStats = new ModifyStats();
+//        Label ExpectedLabel = new Label();
+//        String ExpectedText = "I'm a potato";
+//        Label TestLabel = new Label();
+////        modifyStats.modifyLabels(TestLabel, ExpectedText);
+//        //  ExpectedLabel.setText(ExpectedText);
+////        Assert.assertSame(ExpectedLabel, TestLabel);
+//        //   Assert.assertR(modifyStats.modifyLabels(ExpectedLabel, ExpectedText));
+//        Assert.assertNotNull(modifyStats.modifyLabels(ExpectedLabel, ExpectedText));
+//
 //    }
 }
