@@ -1,4 +1,3 @@
-import Model.Fun;
 import Model.Statistics;
 import View.View;
 import javafx.scene.image.Image;
@@ -23,7 +22,6 @@ public class test {
         @Test
     public void isStatModify() {
         Statistics statistics = new Statistics();
-        Fun fun = new Fun();
         String funAdded = "Statistics \n" +
                 "Feed 50\n" +
                 "Fun 60\n" +

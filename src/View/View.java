@@ -1,6 +1,7 @@
 package View;
 
 import Model.Statistics;
+import Model.Timers;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -34,11 +35,12 @@ public class View extends Statistics {
         Label notificationFeed = new Label();
         Label notificationFun = new Label();
 
+        Timers timers = new Timers();
         Buttons buttons = new Buttons();
         primaryStage.setTitle("Tamagothi");
 
 
-        viewStats(labelEnergy, notificationEnergy);
+        timers.viewStats(labelEnergy, notificationEnergy);
 
         buttons.addButtons(board, labelFun, labelFeed, notificationFeed, notificationFun);
 
@@ -47,115 +49,119 @@ public class View extends Statistics {
 
         board.setPadding(new Insets(10, 10, 10, 10));
     }
-
-    public void viewStats(Label label, Label notificationEnergy) {
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
-                        new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent actionEvent) {
-                                changeSleepLvlMinus();
-                                label.setText("Energy: " + Integer.toString(getSleepLvl()));
-                                notificationEnergy.setText("Awake");
-                                if (getSleepLvl() < 38) {
-                                    notificationEnergy.setText("Sleeping");
-                                    sleepValue = 100;
-                                    changeSleepLvl();
-
-                                } else if (getSleepLvl() < sleepValue) {
-                                    notificationEnergy.setText("Low Sleep lvl");
-                                    sleepValue = 45;
-
-                                }
-                            }
-                        }
-                ),
-                new KeyFrame(Duration.seconds(1))
-        );
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
-
-
-    public void useChangeFunLvl(Label label, Button funButton, Label notificationFeed) {
-        label.setText("\nFun: " + Integer.toString(getFunLvl()));
-        funButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-
-            @Override
-            public void handle(javafx.event.ActionEvent event) {
-                changeFunLvl();
-                label.setText("\nFun: " + Integer.toString(getFunLvl()));
-
-            }
-        });
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
-                        new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent actionEvent) {
-                                changeFunLvlMinus();
-                                label.setText("\nFun: " + Integer.toString(getFunLvl()));
-
-                                if (getFunLvl() < MINIMUMAMOUNT) {
-                                    notificationFeed.setText("Low Fun lvl");
-                                    if (getFunLvl() <= 0) {
-                                        System.out.println("Vader commited Sudoku");
-                                        Platform.exit();
-                                        System.exit(0);
-                                    }
-                                } else {
-                                    notificationFeed.setText("Good Fun lvl");
-                                }
-                            }
-                        }
-                ),
-                new KeyFrame(Duration.seconds(1))
-        );
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-
-    }
-
-    public void useChangeFeedLvl(Label label, Button feedButton, Label notificationFun) {
-        label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
-        feedButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-
-            @Override
-            public void handle(javafx.event.ActionEvent event) {
-                changeHungryLvl();
-                label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
-
-            }
-        });
-
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(0),
-                        new EventHandler<ActionEvent>() {
-                            @Override
-                            public void handle(ActionEvent actionEvent) {
-                                changeHungryLvlMinus();
-                                label.setText("\nHungry: " + Integer.toString(getHungryLvl()));
-
-                                if (getHungryLvl() < MINIMUMAMOUNT) {
-                                    notificationFun.setText("Low Feed lvl");
-                                    if (getHungryLvl() <= 0) {
-                                        System.out.println("Vader starved to dead");
-                                        Platform.exit();
-                                        System.exit(0);
-                                    }
-                                } else {
-                                    notificationFun.setText("Good Feed lvl");
-                                }
-                            }
-                        }
-                ),
-                new KeyFrame(Duration.seconds(1))
-        );
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
 }
+
+//    public void viewStats(Label label, Label notificationEnergy) {
+//        Timeline timeline = new Timeline(
+//                new KeyFrame(Duration.seconds(0),
+//                        new EventHandler<ActionEvent>() {
+//                            @Override
+//                            public void handle(ActionEvent actionEvent) {
+//                                changeSleepLvlMinus();
+//                                label.setText("Energy: " + Integer.toString(getSleepLvl()));
+//                                notificationEnergy.setText("Awake");
+//                                if (getSleepLvl() < sleepValue) {
+//                                    notificationEnergy.setText("Low Sleep lvl");
+//                                    //sleepValue = 45;
+//                                    if (getSleepLvl() < 38) {
+//                                        notificationEnergy.setText("Sleeping");
+//                                        sleepValue = 100;
+//                                        changeSleepLvl();
+//                                    }
+//                                } else {
+//                                    sleepValue = 45;
+//                                }
+//
+//
+//                            }
+//                        }
+//                ),
+//                new KeyFrame(Duration.seconds(1))
+//        );
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
+//    }
+//
+//
+//    public void useChangeFunLvl(Label label, Button funButton, Label notificationFeed) {
+//        label.setText("Fun: " + Integer.toString(getFunLvl()));
+//        funButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+//
+//            @Override
+//            public void handle(javafx.event.ActionEvent event) {
+//                changeFunLvl();
+//                label.setText("Fun: " + Integer.toString(getFunLvl()));
+//
+//            }
+//        });
+//
+//        Timeline timeline = new Timeline(
+//                new KeyFrame(Duration.seconds(0),
+//                        new EventHandler<ActionEvent>() {
+//                            @Override
+//                            public void handle(ActionEvent actionEvent) {
+//                                changeFunLvlMinus();
+//                                label.setText("Fun: " + Integer.toString(getFunLvl()));
+//
+//                                if (getFunLvl() < MINIMUMAMOUNT) {
+//                                    notificationFeed.setText("Low Fun lvl");
+//                                    if (getFunLvl() <= 0) {
+//                                        System.out.println("Vader commited Sudoku");
+//                                        Platform.exit();
+//                                        System.exit(0);
+//                                    }
+//                                } else {
+//                                    notificationFeed.setText("Good Fun lvl");
+//                                }
+//                            }
+//                        }
+//                ),
+//                new KeyFrame(Duration.seconds(1))
+//        );
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
+//
+//    }
+//
+//    public void useChangeFeedLvl(Label label, Button feedButton, Label notificationFun) {
+//        label.setText("Hungry: " + Integer.toString(getHungryLvl()));
+//        feedButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+//
+//            @Override
+//            public void handle(javafx.event.ActionEvent event) {
+//                changeHungryLvl();
+//                label.setText("Hungry: " + Integer.toString(getHungryLvl()));
+//
+//            }
+//        });
+//
+//        Timeline timeline = new Timeline(
+//                new KeyFrame(Duration.seconds(0),
+//                        new EventHandler<ActionEvent>() {
+//                            @Override
+//                            public void handle(ActionEvent actionEvent) {
+//                                changeHungryLvlMinus();
+//                                label.setText("Hungry: " + Integer.toString(getHungryLvl()));
+//
+//                                if (getHungryLvl() < MINIMUMAMOUNT) {
+//                                    notificationFun.setText("Low Feed lvl");
+//                                    if (getHungryLvl() <= 0) {
+//                                        System.out.println("Vader starved to dead");
+//                                        Platform.exit();
+//                                        System.exit(0);
+//                                    }
+//                                } else {
+//                                    notificationFun.setText("Good Feed lvl");
+//                                }
+//                            }
+//                        }
+//                ),
+//                new KeyFrame(Duration.seconds(1))
+//        );
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
+//    }
+//}
 
 
 

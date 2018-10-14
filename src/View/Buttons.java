@@ -1,15 +1,12 @@
 package View;
 
-import Model.Feed;
-import Model.Fun;
 import Model.Statistics;
+import Model.Timers;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Label;
 
 public class Buttons extends Statistics {
-    private Fun fun = new Fun();
-    private Feed feed = new Feed();
     private Statistics statistics = new Statistics();
     private Button feedButton = new Button("Feed");
     private Button funButton = new Button("Kill Yedi");
@@ -47,9 +44,10 @@ public class Buttons extends Statistics {
 
     public void addButtons(VBox board, Label labelFun, Label labelFeed, Label notificationFeed, Label notificationFun) {
         View view = new View();
+        Timers timers = new Timers();
         //view.useFun(funButton);
-        view.useChangeFunLvl(labelFun, funButton, notificationFun);
-        view.useChangeFeedLvl(labelFeed, feedButton, notificationFeed);
+        timers.useChangeFunLvl(labelFun, funButton, notificationFun);
+        timers.useChangeFeedLvl(labelFeed, feedButton, notificationFeed);
         board.getChildren().addAll(funButton, feedButton);
     }
 }
