@@ -1,6 +1,8 @@
 package Model;
 
 import Controller.ModifyStats;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.Random;
 
@@ -9,6 +11,12 @@ public class Statistics extends ModifyStats {
     private int hungryLvl = 50;
     private int funLvl = 50;
     private int sleepLvl = 42;
+    private Image Vader = new Image("vader.jpeg");
+    private ImageView viewVader = new ImageView(Vader);
+
+    public ImageView getViewVader() {
+        return viewVader;
+    }
 
     public int getSleepLvl() {
         return sleepLvl;

@@ -1,5 +1,6 @@
 package Model;
 
+import Controller.ModifyStats;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -15,19 +16,25 @@ public class Timers extends Statistics {
     public int sleepValue = 40;
 
     public void viewStats(Label label, Label notificationEnergy) {
+
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(0),
                         new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent actionEvent) {
+                                ModifyStats modifyStats = new ModifyStats();
                                 changeSleepLvlMinus();
-                                label.setText("Energy: " + Integer.toString(getSleepLvl()));
-                                notificationEnergy.setText("Awake");
+                                modifyStats.modifyLabels(label, "Energy: " + Integer.toString(getSleepLvl()));
+                                modifyStats.modifyLabels(notificationEnergy, "Awake");
+                                //    label.setText("Energy: " + Integer.toString(getSleepLvl()));
+                                //notificationEnergy.setText("Awake");
                                 if (getSleepLvl() < sleepValue) {
-                                    notificationEnergy.setText("Low Sleep lvl");
+                                    modifyStats.modifyLabels(notificationEnergy, "Low Sleep lvl");
+                                    // notificationEnergy.setText("Low Sleep lvl");
                                     //sleepValue = 45;
                                     if (getSleepLvl() < 38) {
-                                        notificationEnergy.setText("Sleeping");
+                                        modifyStats.modifyLabels(notificationEnergy, "Sleeping");
+                                        // notificationEnergy.setText("Sleeping");
                                         sleepValue = 100;
                                         changeSleepLvl();
                                     }
@@ -47,13 +54,16 @@ public class Timers extends Statistics {
 
 
     public void useChangeFunLvl(Label label, Button funButton, Label notificationFeed) {
-        label.setText("Fun: " + Integer.toString(getFunLvl()));
+        ModifyStats modifyStats = new ModifyStats();
+        modifyStats.modifyLabels(label, "Fun: " + Integer.toString(getFunLvl()));
+        //   label.setText("Fun: " + Integer.toString(getFunLvl()));
         funButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
 
             @Override
             public void handle(javafx.event.ActionEvent event) {
                 changeFunLvl();
-                label.setText("Fun: " + Integer.toString(getFunLvl()));
+                modifyStats.modifyLabels(label, "Fun: " + Integer.toString(getFunLvl()));
+                //  label.setText("Fun: " + Integer.toString(getFunLvl()));
 
             }
         });
@@ -64,17 +74,20 @@ public class Timers extends Statistics {
                             @Override
                             public void handle(ActionEvent actionEvent) {
                                 changeFunLvlMinus();
-                                label.setText("Fun: " + Integer.toString(getFunLvl()));
+                                modifyStats.modifyLabels(label, "Fun: " + Integer.toString(getFunLvl()));
+                                //  label.setText("Fun: " + Integer.toString(getFunLvl()));
 
                                 if (getFunLvl() < MINIMUMAMOUNT) {
-                                    notificationFeed.setText("Low Fun lvl");
+                                    modifyStats.modifyLabels(notificationFeed, "Low Fun lvl");
+                                    // notificationFeed.setText("Low Fun lvl");
                                     if (getFunLvl() <= 0) {
                                         System.out.println("Vader commited Sudoku");
                                         Platform.exit();
                                         System.exit(0);
                                     }
                                 } else {
-                                    notificationFeed.setText("Good Fun lvl");
+                                    modifyStats.modifyLabels(notificationFeed, "Good Fun lvl");
+                                    //  notificationFeed.setText("Good Fun lvl");
                                 }
                             }
                         }
@@ -87,13 +100,16 @@ public class Timers extends Statistics {
     }
 
     public void useChangeFeedLvl(Label label, Button feedButton, Label notificationFun) {
-        label.setText("Hungry: " + Integer.toString(getHungryLvl()));
+        ModifyStats modifyStats = new ModifyStats();
+        modifyStats.modifyLabels(label, "Hungry: " + Integer.toString(getHungryLvl()));
+        //  label.setText("Hungry: " + Integer.toString(getHungryLvl()));
         feedButton.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
 
             @Override
             public void handle(javafx.event.ActionEvent event) {
                 changeHungryLvl();
-                label.setText("Hungry: " + Integer.toString(getHungryLvl()));
+                modifyStats.modifyLabels(label, "Hungry: " + Integer.toString(getHungryLvl()));
+                //   label.setText("Hungry: " + Integer.toString(getHungryLvl()));
 
             }
         });
@@ -104,17 +120,20 @@ public class Timers extends Statistics {
                             @Override
                             public void handle(ActionEvent actionEvent) {
                                 changeHungryLvlMinus();
-                                label.setText("Hungry: " + Integer.toString(getHungryLvl()));
+                                modifyStats.modifyLabels(label, "Hungry: " + Integer.toString(getHungryLvl()));
+                                //label.setText("Hungry: " + Integer.toString(getHungryLvl()));
 
                                 if (getHungryLvl() < MINIMUMAMOUNT) {
-                                    notificationFun.setText("Low Feed lvl");
+                                    modifyStats.modifyLabels(notificationFun, "Low Feed lvl");
+                                    //      notificationFun.setText("Low Feed lvl");
                                     if (getHungryLvl() <= 0) {
                                         System.out.println("Vader starved to dead");
                                         Platform.exit();
                                         System.exit(0);
                                     }
                                 } else {
-                                    notificationFun.setText("Good Feed lvl");
+                                    modifyStats.modifyLabels(notificationFun, "Good Feed lvl");
+                                    //notificationFun.setText("Good Feed lvl");
                                 }
                             }
                         }

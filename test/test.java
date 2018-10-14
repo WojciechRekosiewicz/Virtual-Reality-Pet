@@ -1,3 +1,4 @@
+import Controller.ModifyStats;
 import Model.Statistics;
 import View.View;
 import javafx.scene.image.Image;
@@ -19,40 +20,22 @@ public class test {
         Assert.assertEquals(sleepLvl, statisticsObject.getSleepLvl());
     }
 
-        @Test
-    public void isStatModify() {
-        Statistics statistics = new Statistics();
-        String funAdded = "Statistics \n" +
-                "Feed 50\n" +
-                "Fun 60\n" +
-                "Energy 50\n";
-     //   Assert.assertSame(funAdded, fun.funModify());
-        }
-//    @Test
-//    public void isStrAndDexCreated() {
-//        Statistics StatisticsObject = new Statistics();
-//        Random generator = new Random();
-//        int strength = generator.nextInt(100);
-//        int dexterity = generator.nextInt(100);
-//        Assert.assertNotEquals(strength, StatisticsObject.getStrength());
-//        Assert.assertNotEquals(dexterity, StatisticsObject.getDexterity());
-//
-//    }
-
-//    @Test
-//    public void isHungry(){
-//        Statistics statisticsObject = new Statistics();
-//        int hungryLvl = 50;
-//        int funLvl = 50;
-//        Assert.assertEquals(hungryLvl, statisticsObject.getHungryLvl());
-//        Assert.assertEquals(funLvl, statisticsObject.getFunLvl());
-//    }
-
     @Test
-    public void isImageAdded() {
-        View viewObject = new View();
-        Image Vader = new Image("vader.jpeg");
-        ImageView vaderView = new ImageView(Vader);
-        Assert.assertEquals(viewObject.getViewVader(), vaderView);
+    public void ModifyStatsChecker() {
+        ModifyStats modifyStats = new ModifyStats();
+        int valueToCheck = 10;
+        int valueAdded = 5;
+        int resultExpected = 15;
+        int resultFromFunction = modifyStats.modifyStats(valueToCheck, valueAdded);
+        Assert.assertEquals(resultExpected, resultFromFunction);
     }
+
+
+//    @Test
+//    public void isImageAdded() {
+//        Statistics statistics = new Statistics();
+//        Image Vader = new Image("vader.jpeg");
+//        ImageView vaderView = new ImageView(Vader);
+//        Assert.assertEquals(vaderView, statistics.getViewVader());
+//    }
 }
