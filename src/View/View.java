@@ -25,6 +25,7 @@ public class View extends Statistics {
         Label notificationEnergy = new Label();
         Label notificationFeed = new Label();
         Label notificationFun = new Label();
+
         Timers timers = new Timers();
         Buttons buttons = new Buttons();
         primaryStage.setTitle("Tamagothi");

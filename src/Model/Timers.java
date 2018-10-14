@@ -12,8 +12,8 @@ import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 public class Timers extends Statistics {
-    public int MINIMUMAMOUNT = 40;
-    public int sleepValue = 40;
+    private int MINIMUMAMOUNT = 40;
+    private int sleepValue = 0;
 
     public void viewStats(Label label, Label notificationEnergy) {
 
@@ -22,27 +22,19 @@ public class Timers extends Statistics {
                         new EventHandler<ActionEvent>() {
                             @Override
                             public void handle(ActionEvent actionEvent) {
+                                // int sleepValue = 40;
                                 ModifyStats modifyStats = new ModifyStats();
                                 changeSleepLvlMinus();
                                 modifyStats.modifyLabels(label, "Energy: " + Integer.toString(getSleepLvl()));
                                 modifyStats.modifyLabels(notificationEnergy, "Awake");
-                                //    label.setText("Energy: " + Integer.toString(getSleepLvl()));
-                                //notificationEnergy.setText("Awake");
+
                                 if (getSleepLvl() < sleepValue) {
-                                    modifyStats.modifyLabels(notificationEnergy, "Low Sleep lvl");
-                                    // notificationEnergy.setText("Low Sleep lvl");
-                                    //sleepValue = 45;
-                                    if (getSleepLvl() < 38) {
-                                        modifyStats.modifyLabels(notificationEnergy, "Sleeping");
-                                        // notificationEnergy.setText("Sleeping");
-                                        sleepValue = 100;
-                                        changeSleepLvl();
-                                    }
+                                    sleepValue = 100;
+                                    modifyStats.modifyLabels(notificationEnergy, "Sleeping");
+                                    changeSleepLvl();
                                 } else {
-                                    sleepValue = 45;
+                                    sleepValue = 0;
                                 }
-
-
                             }
                         }
                 ),
