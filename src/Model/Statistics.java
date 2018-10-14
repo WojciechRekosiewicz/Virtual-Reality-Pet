@@ -8,9 +8,9 @@ import java.util.Random;
 
 public class Statistics extends ModifyStats {
     private Random generator = new Random();
-    private int hungryLvl = 50;
-    private int funLvl = 50;
-    private int sleepLvl = 42;
+    private int hungryLvl = generator.nextInt(50) + 10;
+    private int funLvl = generator.nextInt(50) + 10;
+    private int sleepLvl = generator.nextInt(50) + 10;
     private Image Vader = new Image("vader.jpeg");
     private ImageView viewVader = new ImageView(Vader);
 

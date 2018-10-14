@@ -2,8 +2,6 @@ package Controller;
 
 import javafx.scene.control.Label;
 
-import java.awt.*;
-
 public class ModifyStats {
     public Integer modifyStats(int statToModify, int modifier) {
         statToModify += modifier;

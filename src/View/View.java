@@ -2,20 +2,10 @@ package View;
 
 import Model.Statistics;
 import Model.Timers;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
 public class View extends Statistics {
     public void createBoard(VBox board, Stage primaryStage) {
