@@ -11,7 +11,8 @@ public class Main extends Application {
         VBox board = new VBox();
         View viewObject = new View();
         viewObject.createBoard(board, primaryStage);
-        Scene scene = new Scene(board, 1000, 1000);
+        Scene scene = new Scene(board, 2560, 1440);
+        scene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
 

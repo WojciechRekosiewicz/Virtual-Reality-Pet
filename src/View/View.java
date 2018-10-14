@@ -3,6 +3,7 @@ package View;
 import Model.Statistics;
 import Model.Timers;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -19,8 +20,6 @@ public class View extends Statistics {
         Timers timers = new Timers();
         Buttons buttons = new Buttons();
         primaryStage.setTitle("Tamagothi");
-
-
         timers.viewStats(labelEnergy, notificationEnergy);
 
         buttons.addButtons(board, labelFun, labelFeed, notificationFeed, notificationFun);
@@ -29,6 +28,8 @@ public class View extends Statistics {
                 notificationFeed, notificationFun);
 
         board.setPadding(new Insets(10, 10, 10, 10));
+        board.setId("pane");
+        board.setAlignment(Pos.CENTER);
     }
 }
 
